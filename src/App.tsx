@@ -2,10 +2,11 @@ import "./index.css";
 import { NavBar } from "./components/NavBar";
 import { CreateNote } from "./components/CreateNote";
 import { NotesList } from "./components/NotesList";
+import Providers from "./providers";
 
 export default function App() {
   return (
-    <>
+    <Providers>
       <div className="bg-[#F0F2F5] max-w-[1440px] min-h-screen my-0 mx-auto">
         <header>
           <NavBar />
@@ -15,6 +16,6 @@ export default function App() {
           <NotesList />
         </main>
       </div>
-    </>
+    </Providers>
   );
 }
