@@ -1,18 +1,8 @@
-import { useState, useEffect } from "react";
-import { Note } from "../../Interfaces/Note";
-import { getAllNotes } from "../../api/notes";
 import NoteCard from "./NoteCard";
+import useFetchNotes from "../../hooks/useFetchNotes";
 
 export default function NotesList() {
-  const [notes, setNotes] = useState<Note[]>([]);
-  const getData = async () => {
-    const data = await getAllNotes();
-    setNotes(data);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
+  const { notes } = useFetchNotes();
 
   return (
     <section className="flex flex-col gap-10 lg:w-full lg:px-20">
@@ -21,9 +11,7 @@ export default function NotesList() {
           Favoritas
         </h2>
         <ul className="flex flex-wrap items-center justify-center lg:justify-normal gap-8 w-full">
-          {notes
-            .filter((note) => Boolean(note.isFavorite))
-            .map((note) => (
+          {notes?.filter((note) => Boolean(note.isFavorite)).map((note) => (
               <li key={note.id}>
                 <NoteCard note={note} />
               </li>
@@ -36,9 +24,7 @@ export default function NotesList() {
           Outras
         </h2>
         <ul className="flex flex-wrap items-center justify-center lg:justify-normal gap-8 w-full">
-          {notes
-            .filter((note) => Boolean(!note.isFavorite))
-            .map((note) => (
+          {notes?.filter((note) => Boolean(!note.isFavorite)).map((note) => (
               <li key={note.id}>
                 <NoteCard note={note} />
               </li>
