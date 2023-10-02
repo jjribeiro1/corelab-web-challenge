@@ -1,4 +1,6 @@
-type Props = { isFavorite: boolean } & React.HTMLAttributes<SVGSVGElement>;
+import { HTMLAttributes } from "react";
+
+type Props = { isFavorite: boolean } & HTMLAttributes<SVGSVGElement>;
 
 export default function FavoriteIcon({ isFavorite, ...props }: Props) {
   return (

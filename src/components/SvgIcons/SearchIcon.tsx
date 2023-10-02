@@ -1,6 +1,11 @@
-export default function SearchIcon() {
+import { HTMLAttributes } from "react";
+
+type Props = HTMLAttributes<SVGSVGElement>;
+
+export default function SearchIcon({ ...props }: Props) {
   return (
     <svg
+      {...props}
       className="absolute block top-1/2 -translate-x-1/2 -translate-y-1/2 right-3"
       xmlns="http://www.w3.org/2000/svg"
       width="15"

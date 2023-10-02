@@ -1,4 +1,4 @@
-import SearchIcon from "./SearchIcon";
+import SearchIcon from "../SvgIcons/SearchIcon";
 
 export default function SearchBar() {
   return (

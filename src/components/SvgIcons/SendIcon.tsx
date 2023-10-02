@@ -1,4 +1,6 @@
-type Props = React.HTMLAttributes<SVGSVGElement>;
+import { HTMLAttributes } from "react";
+
+type Props = HTMLAttributes<SVGSVGElement>;
 
 export default function SendIcon({ ...props }: Props) {
   return (

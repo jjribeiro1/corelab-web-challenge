@@ -1,6 +1,11 @@
-export default function CloseIcon() {
+import { HTMLAttributes } from "react";
+
+type Props = HTMLAttributes<SVGSVGElement>;
+
+export default function CloseIcon({ ...props }: Props) {
   return (
     <svg
+      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"

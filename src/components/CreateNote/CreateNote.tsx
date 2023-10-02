@@ -1,6 +1,6 @@
 import { useState } from "react";
-import FavoriteIcon from "../FavoriteIcon/FavoriteIcon";
-import SendIcon from "./SendIcon";
+import FavoriteIcon from "../SvgIcons/FavoriteIcon";
+import SendIcon from "../SvgIcons/SendIcon";
 
 export default function CreateNote() {
   const [isFavorite, setIsFavorite] = useState(false);
