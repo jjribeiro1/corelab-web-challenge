@@ -1,9 +1,28 @@
 import { useState } from "react";
 import FavoriteIcon from "../SvgIcons/FavoriteIcon";
 import SendIcon from "../SvgIcons/SendIcon";
+import { createNote } from "../../api/notes";
 
 export default function CreateNote() {
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
   const [isFavorite, setIsFavorite] = useState(false);
+
+  const handleCreateNote = async () => {
+    try {
+      await createNote({
+        title,
+        text,
+        isFavorite,
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setTitle("");
+      setText("");
+      setIsFavorite(false);
+    }
+  };
 
   return (
     <section>
@@ -13,6 +32,8 @@ export default function CreateNote() {
             type="text"
             className="rounded-t-3xl sm:rounded-t-[3px] py-3 px-5 outline-1 outline-[#d1d1d1] w-full placeholder:text-[#333] placeholder:text-sm placeholder:font-bold"
             placeholder="Título"
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
           />
           <FavoriteIcon
             isFavorite={isFavorite}
@@ -24,8 +45,10 @@ export default function CreateNote() {
           <textarea
             className="block rounded-b-3xl sm:rounded-b-[3px] py-3 pl-5 outline-1 outline-[#d1d1d1] w-full placeholder:text-[#50656E] placeholder:text-sm"
             placeholder="Criar nota..."
+            onChange={(e) => setText(e.target.value)}
+            value={text}
           />
-          <SendIcon />
+          <SendIcon onClick={handleCreateNote} />
         </div>
       </div>
     </section>
