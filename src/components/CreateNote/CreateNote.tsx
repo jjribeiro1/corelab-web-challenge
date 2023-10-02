@@ -1,27 +1,19 @@
 import { useState } from "react";
 import FavoriteIcon from "../SvgIcons/FavoriteIcon";
 import SendIcon from "../SvgIcons/SendIcon";
-import { createNote } from "../../api/notes";
+import useCreateNoteMutation from "../../mutations/create-note";
 
 export default function CreateNote() {
+  const createNoteMutation = useCreateNoteMutation();
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleCreateNote = async () => {
-    try {
-      await createNote({
-        title,
-        text,
-        isFavorite,
-      });
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setTitle("");
-      setText("");
-      setIsFavorite(false);
-    }
+    createNoteMutation.mutate({ title, text, isFavorite });
+    setTitle("");
+    setText("");
+    setIsFavorite(false);
   };
 
   return (
