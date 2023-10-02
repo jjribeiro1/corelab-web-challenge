@@ -15,11 +15,12 @@ export default function NotesList() {
   }, []);
 
   return (
-    <section className="lg:w-full lg:px-24">
-
-      <div className="space-y-2">
-        <h2 className="pl-6">Favoritas</h2>
-        <ul className="flex flex-wrap items-center gap-8">
+    <section className="flex flex-col gap-10 lg:w-full lg:px-20">
+      <article className="flex flex-col gap-2">
+        <h2 className="lg:pl-6 text-center lg:text-start text-[#464646]">
+          Favoritas
+        </h2>
+        <ul className="flex flex-wrap items-center justify-center lg:justify-normal gap-8 w-full">
           {notes
             .filter((note) => Boolean(note.isFavorite))
             .map((note) => (
@@ -28,8 +29,22 @@ export default function NotesList() {
               </li>
             ))}
         </ul>
-      </div>
-      
+      </article>
+
+      <article className="flex flex-col gap-2">
+        <h2 className="lg:pl-6 text-center lg:text-start text-[#464646]">
+          Outras
+        </h2>
+        <ul className="flex flex-wrap items-center justify-center lg:justify-normal gap-8 w-full">
+          {notes
+            .filter((note) => Boolean(!note.isFavorite))
+            .map((note) => (
+              <li key={note.id}>
+                <NoteCard note={note} />
+              </li>
+            ))}
+        </ul>
+      </article>
     </section>
   );
 }
