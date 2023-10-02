@@ -1,10 +1,11 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, forwardRef } from "react";
 
 type Props = HTMLAttributes<SVGSVGElement>;
 
-export default function CloseIcon({ ...props }: Props) {
-  return (
+const CloseIcon = forwardRef<SVGSVGElement, Props>(
+  ({ ...props }: Props, ref) => (
     <svg
+      ref={ref}
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="15"
@@ -17,5 +18,7 @@ export default function CloseIcon({ ...props }: Props) {
         fill="#51646E"
       />
     </svg>
-  );
-}
+  )
+);
+
+export default CloseIcon
