@@ -6,7 +6,7 @@ export default function CreateNote() {
   const [isFavorite, setIsFavorite] = useState(false);
 
   return (
-    <>
+    <section>
       <div className="flex flex-col w-80 sm:w-[530px] divide-y-[1px] divide-[#D9D9D9] shadow-primary rounded-3xl sm:rounded-[3px]">
         <div className="relative">
           <input
@@ -28,6 +28,6 @@ export default function CreateNote() {
           <SendIcon />
         </div>
       </div>
-    </>
+    </section>
   );
 }
