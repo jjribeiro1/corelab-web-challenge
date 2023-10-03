@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getAllNotes } from "../api/notes";
 
-export default function useFetchNotes() {
+export default function useFetchNotes(search?: string) {
   const { data } = useQuery({
-    queryKey: ["fetch-notes"],
-    queryFn: getAllNotes,
+    queryKey: ["fetch-notes", search],
+    queryFn: () => getAllNotes(search),
     staleTime: 1000 * 60 * 5,
     cacheTime: 1000 * 60 * 5 
   });

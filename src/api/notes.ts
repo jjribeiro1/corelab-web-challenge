@@ -3,8 +3,9 @@ import { Note } from "../Interfaces/Note";
 import { CreateNoteInput } from "../Interfaces/create-note-input";
 import { UpdateNoteInput } from "../Interfaces/update-note-input";
 
-export const getAllNotes = async () => {
-  const response = await api.get<Note[]>("/tasks");
+export const getAllNotes = async (search?:string) => {
+  const path = search ? `/tasks?title=${search}` : '/tasks'
+  const response = await api.get<Note[]>(path);
   return response.data;
 };
 

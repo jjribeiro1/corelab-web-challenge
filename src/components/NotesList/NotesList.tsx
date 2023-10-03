@@ -1,9 +1,13 @@
 import NoteCard from "./NoteCard";
 import useFetchNotes from "../../hooks/useFetchNotes";
+import useSearchFilter from "../../hooks/useSearchFilter";
+import useDebounce from "../../hooks/useDebounce";
 
 export default function NotesList() {
-  const { notes } = useFetchNotes();
-
+  const { searchValue } = useSearchFilter()
+  const debouncedValue = useDebounce(searchValue)
+  const { notes } = useFetchNotes(debouncedValue);
+  
   return (
     <section className="flex flex-col gap-10 lg:w-full lg:px-20">
       <article className="flex flex-col gap-2">
