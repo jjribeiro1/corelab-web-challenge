@@ -11,3 +11,8 @@ export const createNote = async ({ title, text, isFavorite }: CreateNoteInput) =
   const response = await api.post("/tasks", { title, text, isFavorite, color: "#F0F2F5" });
   return response.data;
 };
+
+export const deleteNote = async (noteId: string) => {
+  const response = await api.delete(`tasks/${noteId}`);
+  return response.data;
+};

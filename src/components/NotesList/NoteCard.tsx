@@ -4,12 +4,19 @@ import EditIcon from "../SvgIcons/EditIcon";
 import ColorPicker from "../SvgIcons/ColorPicker";
 import CloseIcon from "../SvgIcons/CloseIcon";
 import { Note } from "../../Interfaces/Note";
+import { Alert } from "../Alert";
+import useDeleteNoteMutation from "../../mutations/delete-note";
 
 type Props = {
   note: Note;
 } & HTMLAttributes<HTMLDivElement>;
 
 export default function NoteCard({ note, ...props }: Props) {
+  const deleteNoteMutation = useDeleteNoteMutation();
+
+  const handleDeleteNote = async () => {
+    deleteNoteMutation.mutate({ noteId: note.id });
+  };
 
   return (
     <>
@@ -40,7 +47,15 @@ export default function NoteCard({ note, ...props }: Props) {
             <ColorPicker />
           </div>
 
-          <CloseIcon />
+          <Alert
+            title="Tem certeza que deseja excluir sua nota?"
+            message="Sua nota será excluída permanentemente e não poderá ser recuperada"
+            onCancelMessage="Voltar"
+            onActionMessage="Sim, excluir nota"
+            onAction={handleDeleteNote}
+          >
+            <CloseIcon className="cursor-pointer" />
+          </Alert>
         </div>
       </div>
     </>
