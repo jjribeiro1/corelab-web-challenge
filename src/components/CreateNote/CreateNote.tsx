@@ -9,7 +9,7 @@ export default function CreateNote() {
   const [text, setText] = useState("");
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const handleCreateNote = async () => {
+  const handleCreateNote = () => {
     createNoteMutation.mutate({ title, text, isFavorite });
     setTitle("");
     setText("");
@@ -35,12 +35,16 @@ export default function CreateNote() {
 
         <div className="relative">
           <textarea
-            className="block rounded-b-3xl sm:rounded-b-[3px] py-3 pl-5 outline-1 outline-[#d1d1d1] w-full placeholder:text-[#50656E] placeholder:text-sm"
+            className="block rounded-b-3xl sm:rounded-b-[3px] pt-3 pb-10 px-10 sm:px-5 outline-1 outline-[#d1d1d1] text-xs sm:text-sm w-full 
+            placeholder:text-[#50656E] placeholder:text-sm"
             placeholder="Criar nota..."
             onChange={(e) => setText(e.target.value)}
             value={text}
           />
-          <SendIcon onClick={handleCreateNote} />
+          <SendIcon
+            className="absolute block bottom-2 right-6 cursor-pointer text-[#455A64] lucide lucide-send"
+            onClick={handleCreateNote}
+          />
         </div>
       </div>
     </section>

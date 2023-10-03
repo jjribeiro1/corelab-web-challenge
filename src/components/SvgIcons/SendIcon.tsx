@@ -6,7 +6,6 @@ export default function SendIcon({ ...props }: Props) {
   return (
     <svg
       {...props}
-      className="absolute block bottom-2 right-6 cursor-pointer lucide lucide-send text-[#455A64]"
       xmlns="http://www.w3.org/2000/svg"
       width="15"
       height="15"
