@@ -1,6 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../providers";
 import { deleteNote } from "../api/notes";
+import { Toast } from "../components/Toast";
 
 type MutationProps = {
   noteId: string;
@@ -11,9 +12,11 @@ export default function useDeleteNoteMutation() {
 
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["fetch-notes"] });
+      Toast({type: 'success', message: 'Sua nota foi excluída com sucesso'})
     },
-    onError: (err) => {
-      console.log(err);
+    
+    onError: () => {
+      Toast({type: 'success', message: 'Erro inesperado ao tentar excluir sua nota'})
     },
   });
 }

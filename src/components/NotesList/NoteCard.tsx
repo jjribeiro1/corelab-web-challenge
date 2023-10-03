@@ -54,7 +54,7 @@ export default function NoteCard({ note, ...props }: Props) {
       text,
       isFavorite,
       color,
-    });
+    },{ onError: () => {cancelUpdate()}})
   };
 
   const handleDeleteNote = () => {
