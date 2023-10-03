@@ -1,10 +1,11 @@
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, forwardRef } from "react";
 
 type Props = HTMLAttributes<SVGSVGElement>;
 
-export default function ColorPicker({ ...props }: Props) {
-  return (
+const ColorPickerIcon = forwardRef<SVGSVGElement, Props>(
+  ({ ...props }: Props, ref) => (
     <svg
+      ref={ref}
       {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="19"
@@ -21,5 +22,7 @@ export default function ColorPicker({ ...props }: Props) {
         fill="#FFA000"
       />
     </svg>
-  );
-}
+  )
+);
+
+export default ColorPickerIcon;
