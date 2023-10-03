@@ -1,14 +1,11 @@
 import { HTMLAttributes, useState } from "react";
-import FavoriteIcon from "../SvgIcons/FavoriteIcon";
-import EditIcon from "../SvgIcons/EditIcon";
-import ColorPickerIcon from "../SvgIcons/ColorPickerIcon";
-import CloseIcon from "../SvgIcons/CloseIcon";
-import { Note } from "../../Interfaces/Note";
+import { EditIcon, FavoriteIcon, ColorPickerIcon, CloseIcon } from "../SvgIcons";
 import { Alert } from "../Alert";
-import useDeleteNoteMutation from "../../mutations/delete-note";
 import { Popover } from "../Popover";
 import ColorPicker from "./ColorPicker";
+import useDeleteNoteMutation from "../../mutations/delete-note";
 import useUpdateNoteMutation from "../../mutations/update-note";
+import { Note } from "../../Interfaces/Note";
 
 type Props = {
   note: Note;

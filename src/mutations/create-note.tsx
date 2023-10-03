@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
-import { CreateNoteInput } from "../Interfaces/create-note-input";
-import { createNote } from "../api/notes";
 import { queryClient } from "../providers";
+import { createNote } from "../api/notes";
+import { CreateNoteInput } from "../Interfaces/create-note-input";
 
 type MutationProps = CreateNoteInput;
 

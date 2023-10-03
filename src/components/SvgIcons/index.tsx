@@ -1,0 +1,7 @@
+export { default as CloseIcon } from './CloseIcon'
+export { default as ColorPickerIcon } from './ColorPickerIcon'
+export { default as EditIcon } from './EditIcon'
+export { default as FavoriteIcon } from './FavoriteIcon'
+export { default as Logo } from './Logo'
+export { default as SearchIcon } from './SearchIcon'
+export { default as SendIcon } from './SendIcon'

@@ -1,4 +1,4 @@
-import SearchIcon from "../SvgIcons/SearchIcon";
+import { SearchIcon } from "../SvgIcons";
 
 export default function SearchBar() {
   return (
@@ -9,7 +9,7 @@ export default function SearchBar() {
         w-full placeholder:text-[#9A9A9A]"
         placeholder="Pesquisar notas"
       />
-      <SearchIcon/>
+      <SearchIcon />
     </div>
   );
 }

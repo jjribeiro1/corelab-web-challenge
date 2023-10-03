@@ -1,6 +1,5 @@
 import { useState } from "react";
-import FavoriteIcon from "../SvgIcons/FavoriteIcon";
-import SendIcon from "../SvgIcons/SendIcon";
+import { FavoriteIcon, SendIcon } from "../SvgIcons";
 import useCreateNoteMutation from "../../mutations/create-note";
 
 export default function CreateNote() {

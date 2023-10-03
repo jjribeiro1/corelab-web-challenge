@@ -1,5 +1,4 @@
-import Logo from "../SvgIcons/Logo";
-import CloseIcon from "../SvgIcons/CloseIcon";
+import { Logo, CloseIcon } from "../SvgIcons";
 import { SearchBar } from "../SearchBar";
 
 export default function NavBar() {
