@@ -15,11 +15,11 @@ export const createNote = async ({ title, text, isFavorite }: CreateNoteInput) =
 };
 
 export const updateNote = async ({ noteId, title, text, isFavorite, color }: UpdateNoteInput) => {
-  const response = await api.patch(`tasks/${noteId}`, { title, text, isFavorite, color });
+  const response = await api.patch(`/tasks/${noteId}`, { title, text, isFavorite, color });
   return response.data;
 };
 
 export const deleteNote = async (noteId: string) => {
-  const response = await api.delete(`tasks/${noteId}`);
+  const response = await api.delete(`/tasks/${noteId}`);
   return response.data;
 };
