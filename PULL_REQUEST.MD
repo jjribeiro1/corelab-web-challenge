@@ -39,6 +39,8 @@ Após instalar as dependencias, rode o projeto com:
 ##### - Tentei deixar o código mais simples possível
 ##### - Funções com nomes bem descritivos sobre o que fazem
 ##### - Uso do typescript, nenhum any implícito ou explícito
+##### - Uso de debounce ao fazer a pesquisa por título para evitar requisições desnecessárias
+##### - Talvez os dados do backend demore a carregar no início por motivos de: FREE TIER DO RENDER que ativa um sleep depois de um certo tempo de inatividade
 
 ## Demonstração
 
