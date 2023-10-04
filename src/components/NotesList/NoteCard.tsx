@@ -44,7 +44,7 @@ export default function NoteCard({ note, ...props }: Props) {
     setText(note.text);
     setColor(note.color);
     setIsFavorite(note.isFavorite);
-    setEditMode(true)
+    setEditMode(false)
   };
 
   const handleUpdateNote = () => {
