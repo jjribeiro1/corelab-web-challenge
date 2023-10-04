@@ -16,7 +16,7 @@ export default function useDeleteNoteMutation() {
     },
     
     onError: () => {
-      Toast({type: 'success', message: 'Erro inesperado ao tentar excluir sua nota'})
+      Toast({type: 'error', message: 'Erro inesperado ao tentar excluir sua nota'})
     },
   });
 }
